@@ -21,10 +21,14 @@ function Home() {
   const [cartVisible, setCartVisible] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [checked, setChecked] = useState(false);
+  const [notificationIcon, setNotificationIcon] = useState(<BsBellSlash size={20} />);
+
 
   const handleChange = (checked) => {
     setChecked(checked);
+    setNotificationIcon(checked ? <RxBell size={20} /> : <BsBellSlash size={20} />);
   };
+  
 
   const handleSignOut = () => {
     setLoading(true);
@@ -98,27 +102,24 @@ function Home() {
         return (
           <div className="itenscenter">
             <DivSwitch>
-              <button title="btn-function"
-                className="item between"
-               
-              >
+              <button title="btn-function" className="item between">
                 <div className="flex">
-                <BsBellSlash size={20} />
-                <span>Silenciar Notificações</span>
+                  {notificationIcon}
+                  <span>Silenciar Notificações</span>
                 </div>
-              <Switch
-                height={10}
-                width={30}
-                checkedIcon={false}
-                uncheckedIcon={false}
-                handleDiameter={20}
-                onColor="#e1e9f0"
-                onHandleColor="#6c757d"
-                offColor="#aaeeee"
-                offHandleColor="#87ade7"
-                onChange={handleChange}
-                checked={checked}
-              />
+                <Switch
+                  height={10}
+                  width={30}
+                  checkedIcon={false}
+                  uncheckedIcon={false}
+                  handleDiameter={20}
+                  onColor="#e1e9f0"
+                  onHandleColor="#6c757d"
+                  offColor="#aaeeee"
+                  offHandleColor="#87ade7"
+                  onChange={handleChange}
+                  checked={checked}
+                />
               </button>
             </DivSwitch>
             <button title="btn-function"
