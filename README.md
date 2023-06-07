@@ -17,7 +17,7 @@ O Desafio consiste em reproduzir o layout onde simula uma interface de tela de C
 <br>
 
 <p align="center">
-  <img src="https://github.com/pablokaliel/boracodar-21/assets/104238801/67f8eff3-3681-414a-90af-5a1521d03d3a" width="100%">
+  <img src="https://github.com/pablokaliel/boracodar-22/assets/104238801/f7e0ae46-266d-4ffc-b748-ef78463355c8" width="100%">
 </p>
 
 ## 🚀 Tecnologias
