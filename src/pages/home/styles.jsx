@@ -33,6 +33,12 @@ export const Container = styled.div`
   }
 
   div {
+    .itenscenter {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
     .app {
       color: var(--SubText);
       font-size: 12px;
@@ -63,6 +69,11 @@ export const Container = styled.div`
       font-size: 15px;
       width: 100%;
 
+      @media (max-width: 767px) {
+        background-color: var(--Card);
+        width: 100%;
+      }
+
       &:hover {
         color: #000;
         font-size: 16px;
@@ -80,6 +91,19 @@ export const Container = styled.div`
 
     background-color: var(--Card);
     border-radius: 8px;
+
+    @media (max-width: 767px) {
+      top: 0; // Posicionar o modal no topo
+      left: 0; // Ajustar a posição do modal
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%; // Definir a largura do modal para preencher a tela
+      min-height: 150px; // Definir a altura do modal para preencher a tela
+      margin-left: 0;
+      background-color: var(--background);
+    }
   }
 `;
 export const Swapper = styled.div`
@@ -135,6 +159,21 @@ export const DivImg = styled.div`
 `;
 
 export const Main = styled.main``;
+
+export const DivSwitch = styled.div`
+  display: flex;
+  align-items: center;
+  .flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+  .between {
+    display: flex;
+    justify-content: space-between;
+  }
+`;
 
 export const DivInfo = styled.div`
   h1 {

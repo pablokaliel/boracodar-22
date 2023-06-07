@@ -1,23 +1,30 @@
 import React, { useState, useRef } from "react";
-import { Container, Swapper, Header, Divider, DivImg, Main, DivInfo, Info,} from "./styles";
+import { Container, Swapper, Header, Divider, DivImg, Main, DivInfo, Info, DivSwitch,} from "./styles";
+import Switch from "react-switch";
 
-import {RxCaretRight, RxBell, RxQuestionMarkCircled} from "react-icons/rx";
-import {IoKeyOutline, IoAccessibilityOutline, IoCloseSharp} from "react-icons/io5";
-import {MdBluetoothAudio, MdOutlineDevices, MdManageAccounts,MdOutlinePhotoCamera} from "react-icons/md";
-import {HiOutlineUsers} from "react-icons/hi";
-import {GoSignOut } from "react-icons/go";
-import {VscDebugDisconnect} from "react-icons/vsc";
-import {TfiUser } from "react-icons/tfi";
-import {GrShieldSecurity } from "react-icons/gr";
-import {BiPhone, BiSitemap } from "react-icons/bi";
-import {AiOutlineEdit, AiOutlineFontSize, AiOutlineLoading, AiOutlineSearch} from "react-icons/ai";
-import {BsBellSlash,BsAirplane} from "react-icons/bs";
+import { RxCaretRight, RxBell, RxQuestionMarkCircled } from "react-icons/rx";
+import { IoKeyOutline, IoAccessibilityOutline, IoCloseSharp,} from "react-icons/io5";
+import { MdBluetoothAudio, MdOutlineDevices, MdManageAccounts, MdOutlinePhotoCamera,} from "react-icons/md";
+import { HiOutlineUsers } from "react-icons/hi";
+import { GoSignOut } from "react-icons/go";
+import { VscDebugDisconnect } from "react-icons/vsc";
+import { TfiUser } from "react-icons/tfi";
+import { GrShieldSecurity } from "react-icons/gr";
+import { BiPhone, BiSitemap } from "react-icons/bi";
+import { AiOutlineEdit, AiOutlineFontSize, AiOutlineLoading, AiOutlineSearch,} from "react-icons/ai";
+import { BsBellSlash, BsAirplane } from "react-icons/bs";
 
 function Home() {
+
   const [modalItem, setModalItem] = useState(null);
   const modalRef = useRef(null);
   const [cartVisible, setCartVisible] = useState(false);
   const [isLoading, setLoading] = useState(false);
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = (checked) => {
+    setChecked(checked);
+  };
 
   const handleSignOut = () => {
     setLoading(true);
@@ -54,15 +61,15 @@ function Home() {
     switch (modalItem.item) {
       case "DadosPessoais":
         return (
-          <div>
-            <button
+          <div className="itenscenter">
+            <button title="btn-function"
               className="item"
               onClick={() => handleItemClick("Editar Perfil")}
             >
               <AiOutlineEdit size={20} />
               <span>Editar Perfil</span>
             </button>
-            <button
+            <button title="btn-function"
               className="item"
               onClick={() => handleItemClick("Trocar Foto")}
             >
@@ -73,15 +80,15 @@ function Home() {
         );
       case "Informacoes":
         return (
-          <div>
-            <button
+          <div className="itenscenter">
+            <button title="btn-function"
               className="item"
               onClick={() => handleItemClick("Seguranca")}
             >
               <GrShieldSecurity size={20} />
               <span>Segurança</span>
             </button>
-            <button className="item" onClick={() => handleItemClick("Contato")}>
+            <button title="btn-function" className="item" onClick={() => handleItemClick("Contato")}>
               <BiPhone size={20} />
               <span>Contato</span>
             </button>
@@ -89,38 +96,48 @@ function Home() {
         );
       case "notificacoes":
         return (
-          <div>
-            <button
-              className="item"
-              onClick={() => handleItemClick("SilenciarNotificacoes")}
-            >
-              <BsBellSlash size={20} />
-              <span>Silenciar Notificações</span>
-            </button>
-            <button
+          <div className="itenscenter">
+            <DivSwitch>
+              <button title="btn-function"
+                className="item between"
+               
+              >
+                <div className="flex">
+                <BsBellSlash size={20} />
+                <span>Silenciar Notificações</span>
+                </div>
+              <Switch
+                height={10}
+                width={30}
+                checkedIcon={false}
+                uncheckedIcon={false}
+                handleDiameter={20}
+                onColor="#e1e9f0"
+                onHandleColor="#6c757d"
+                offColor="#aaeeee"
+                offHandleColor="#87ade7"
+                onChange={handleChange}
+                checked={checked}
+              />
+              </button>
+            </DivSwitch>
+            <button title="btn-function"
               className="item"
               onClick={() => handleItemClick("AtivarNotificacoes")}
             >
               <BsAirplane size={20} />
               <span>Modo Avião</span>
             </button>
-            <button
-              className="item"
-              onClick={() => handleItemClick("AtivarNotificacoes")}
-            >
-              <RxBell size={20} />
-              <span>Ativar Notificações</span>
-            </button>
           </div>
         );
       case "acessibilidade":
         return (
-          <div>
-            <button className="item" onClick={() => handleItemClick("Fontes")}>
+          <div className="itenscenter">
+            <button title="btn-function" className="item" onClick={() => handleItemClick("Fontes")}>
               <AiOutlineFontSize size={20} />
               <span>Fontes</span>
             </button>
-            <button className="item" onClick={() => handleItemClick("Temas")}>
+            <button title="btn-function" className="item" onClick={() => handleItemClick("Temas")}>
               <BiSitemap size={20} />
               <span>Temas</span>
             </button>
@@ -128,35 +145,37 @@ function Home() {
         );
       case "AparelhosConectados":
         return (
-          <div>
-            <button
+          <div className="itenscenter">
+            <button title="btn-function"
               className="item"
               onClick={() => handleItemClick("DesconectarDispositivos")}
             >
               <VscDebugDisconnect size={20} />
               <span>Desconectar Dispositivos</span>
             </button>
-            <button
+            <button title="btn-function"
               className="item"
               onClick={() => handleItemClick("ConectarDispositivo")}
             >
               <MdBluetoothAudio size={20} />
               <span>Conectar Dispositivo</span>
             </button>
-            <button
+            <button title="btn-function"
               className="item"
               onClick={() => handleItemClick("EncontrarDispositivo")}
             >
               <AiOutlineSearch size={20} />
               <span>Encontrar Dispositivo</span>
             </button>
-            <Divider/>
+            <Divider />
             <h1 className="app">Aparelhos Conectados</h1>
             <div className="conectados">
-              <span>Samsung Galaxy S20 FE 5G</span><p>(aparelho atual)</p>
+              <span>Samsung Galaxy S20 FE 5G</span>
+              <p>(aparelho atual)</p>
             </div>
             <div className="conectados">
-              <span>Samsung Galaxy A03 Core</span><p>(há 11 horas atrás)</p>
+              <span>Samsung Galaxy A03 Core</span>
+              <p>(há 11 horas atrás)</p>
             </div>
           </div>
         );
@@ -172,7 +191,7 @@ function Home() {
       {cartVisible ? (
         <Swapper>
           <Header>
-            <button onClick={toggleCartVisibility}>
+            <button title="btn-function" onClick={toggleCartVisibility}>
               <IoCloseSharp size={20} />
             </button>
             <DivImg>
@@ -193,28 +212,14 @@ function Home() {
             <DivInfo>
               <h1>Conta</h1>
 
-              <Info
-                onMouseEnter={(event) =>
-                  handleMouseEnter(
-                    "DadosPessoais",
-                    event.target.getBoundingClientRect()
-                  )
-                }
-              >
+              <Info onMouseEnter={(event) => handleMouseEnter( "DadosPessoais", event.target.getBoundingClientRect() ) }>
                 <div>
                   <TfiUser size={20} />
                   <span>Dados Pessoais</span>
                 </div>
                 <RxCaretRight size={20} />
               </Info>
-              <Info
-                onMouseEnter={(event) =>
-                  handleMouseEnter(
-                    "Informacoes",
-                    event.target.getBoundingClientRect()
-                  )
-                }
-              >
+              <Info onMouseEnter={(event) => handleMouseEnter( "Informacoes", event.target.getBoundingClientRect() ) }>
                 <div>
                   <IoKeyOutline size={20} />
                   <span>Informações de login</span>
@@ -227,28 +232,14 @@ function Home() {
 
             <DivInfo>
               <h1>preferências</h1>
-              <Info
-                onMouseEnter={(event) =>
-                  handleMouseEnter(
-                    "notificacoes",
-                    event.target.getBoundingClientRect()
-                  )
-                }
-              >
+              <Info onMouseEnter={(event) => handleMouseEnter( "notificacoes", event.target.getBoundingClientRect())}>
                 <div>
                   <RxBell size={20} />
                   <span>Notificações</span>
                 </div>
                 <RxCaretRight size={20} />
               </Info>
-              <Info
-                onMouseEnter={(event) =>
-                  handleMouseEnter(
-                    "acessibilidade",
-                    event.target.getBoundingClientRect()
-                  )
-                }
-              >
+              <Info onMouseEnter={(event) => handleMouseEnter( "acessibilidade", event.target.getBoundingClientRect())}>
                 <div>
                   <IoAccessibilityOutline size={20} />
                   <span>Acessibilidade</span>
@@ -261,28 +252,14 @@ function Home() {
 
             <DivInfo>
               <h1>Privacidade</h1>
-              <Info
-                onMouseEnter={(event) =>
-                  handleMouseEnter(
-                    "AparelhosConectados",
-                    event.target.getBoundingClientRect()
-                  )
-                }
-              >
+              <Info onMouseEnter={(event) => handleMouseEnter( "AparelhosConectados", event.target.getBoundingClientRect())}>
                 <div>
                   <MdOutlineDevices size={20} />
                   <span>Aparelhos Conectados</span>
                 </div>
                 <RxCaretRight size={20} />
               </Info>
-              <Info
-                onMouseEnter={(event) =>
-                  handleMouseEnter(
-                    "ContasVinculadas",
-                    event.target.getBoundingClientRect()
-                  )
-                }
-              >
+              <Info onMouseEnter={(event) =>handleMouseEnter("ContasVinculadas", event.target.getBoundingClientRect())}>
                 <div>
                   <HiOutlineUsers size={20} />
                   <span>Contas Vinculadas</span>
@@ -302,21 +279,15 @@ function Home() {
               </Info>
 
               <Info>
-                <button className="sign-out" onClick={handleSignOut}>
+                <button title="btn-function" className="sign-out" onClick={handleSignOut}>
                   {isLoading ? (
                     <div>
-                      <AiOutlineLoading
-                        size={20}
-                        className="loading-icon"
-                      />
+                      <AiOutlineLoading size={20} className="loading-icon" />
                       <span>Saindo...</span>
                     </div>
                   ) : (
                     <>
-                      <GoSignOut
-                      size={20}
-                        style={{ color: "#AA2222" }}
-                      />
+                      <GoSignOut size={20} style={{ color: "#AA2222" }} />
                       <span>Sair</span>
                     </>
                   )}
@@ -346,7 +317,7 @@ function Home() {
       ) : (
         <div className="cart-open">
           <span>clique para abrir seu perfil:</span>
-          <button className="open" onClick={toggleCartVisibility}>
+          <button title="btn-function" className="open" onClick={toggleCartVisibility}>
             <MdManageAccounts size={24} />
           </button>
         </div>
