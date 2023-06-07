@@ -33,17 +33,36 @@ export const Container = styled.div`
   }
 
   div {
+    .app {
+      color: var(--SubText);
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .conectados {
+      font-size: 15px;
+      color: #000;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 3px;
+      p {
+        font-size: 11px;
+        color: var(--textColor);
+      }
+    }
+
     .item {
       padding: 8px;
       display: flex;
       gap: 6px;
       cursor: pointer;
       transition: all 0.2s;
-      background:transparent;
-      border:none;
-      font-size:15px;
+      background: transparent;
+      border: none;
+      font-size: 15px;
       width: 100%;
-      
+
       &:hover {
         color: #000;
         font-size: 16px;

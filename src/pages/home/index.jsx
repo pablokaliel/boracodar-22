@@ -1,14 +1,5 @@
 import React, { useState, useRef } from "react";
-import {
-  Container,
-  Swapper,
-  Header,
-  Divider,
-  DivImg,
-  Main,
-  DivInfo,
-  Info,
-} from "./styles";
+import { Container, Swapper, Header, Divider, DivImg, Main, DivInfo, Info,} from "./styles";
 
 import {RxCaretRight, RxBell, RxQuestionMarkCircled} from "react-icons/rx";
 import {IoKeyOutline, IoAccessibilityOutline, IoCloseSharp} from "react-icons/io5";
@@ -159,6 +150,14 @@ function Home() {
               <AiOutlineSearch size={20} />
               <span>Encontrar Dispositivo</span>
             </button>
+            <Divider/>
+            <h1 className="app">Aparelhos Conectados</h1>
+            <div className="conectados">
+              <span>Samsung Galaxy S20 FE 5G</span><p>(aparelho atual)</p>
+            </div>
+            <div className="conectados">
+              <span>Samsung Galaxy A03 Core</span><p>(há 11 horas atrás)</p>
+            </div>
           </div>
         );
       case "ContasVinculadas":
