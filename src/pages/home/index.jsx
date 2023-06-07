@@ -235,7 +235,7 @@ function Home() {
               <h1>preferências</h1>
               <Info onMouseEnter={(event) => handleMouseEnter( "notificacoes", event.target.getBoundingClientRect())}>
                 <div>
-                  <RxBell size={20} />
+                  {notificationIcon}
                   <span>Notificações</span>
                 </div>
                 <RxCaretRight size={20} />
