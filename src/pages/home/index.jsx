@@ -1,66 +1,64 @@
-import React, { useState, useRef } from "react";
-import { Container, Swapper, Header, Divider, DivImg, Main, DivInfo, Info, DivSwitch,} from "./styles";
-import Switch from "react-switch";
+import React, { useState, useRef } from "react"
+import { Container, Swapper, Header, Divider, DivImg, Main, DivInfo, Info, DivSwitch} from "./styles"
+import Switch from "react-switch"
 
-import { RxCaretRight, RxBell, RxQuestionMarkCircled } from "react-icons/rx";
-import { IoKeyOutline, IoAccessibilityOutline, IoCloseSharp,} from "react-icons/io5";
-import { MdBluetoothAudio, MdOutlineDevices, MdManageAccounts, MdOutlinePhotoCamera,} from "react-icons/md";
-import { HiOutlineUsers } from "react-icons/hi";
-import { GoSignOut } from "react-icons/go";
-import { VscDebugDisconnect } from "react-icons/vsc";
-import { TfiUser } from "react-icons/tfi";
-import { GrShieldSecurity } from "react-icons/gr";
-import { BiPhone, BiSitemap } from "react-icons/bi";
-import { AiOutlineEdit, AiOutlineFontSize, AiOutlineLoading, AiOutlineSearch,} from "react-icons/ai";
-import { BsBellSlash, BsAirplane } from "react-icons/bs";
+import { RxCaretRight, RxBell, RxQuestionMarkCircled } from "react-icons/rx"
+import { IoKeyOutline, IoAccessibilityOutline, IoCloseSharp} from "react-icons/io5"
+import { MdBluetoothAudio, MdOutlineDevices, MdManageAccounts, MdOutlinePhotoCamera} from "react-icons/md"
+import { HiOutlineUsers } from "react-icons/hi"
+import { GoSignOut } from "react-icons/go"
+import { VscDebugDisconnect } from "react-icons/vsc"
+import { TfiUser } from "react-icons/tfi"
+import { GrShieldSecurity } from "react-icons/gr"
+import { BiPhone, BiSitemap } from "react-icons/bi"
+import { AiOutlineEdit, AiOutlineFontSize, AiOutlineLoading, AiOutlineSearch} from "react-icons/ai"
+import { BsBellSlash, BsAirplane } from "react-icons/bs"
 
 function Home() {
 
-  const [modalItem, setModalItem] = useState(null);
-  const modalRef = useRef(null);
-  const [cartVisible, setCartVisible] = useState(false);
-  const [isLoading, setLoading] = useState(false);
-  const [checked, setChecked] = useState(false);
-  const [notificationIcon, setNotificationIcon] = useState(<BsBellSlash size={20} />);
-
+  const [modalItem, setModalItem] = useState(null)
+  const modalRef = useRef(null)
+  const [cartVisible, setCartVisible] = useState(false)
+  const [isLoading, setLoading] = useState(false)
+  const [checked, setChecked] = useState(false)
+  const [notificationIcon, setNotificationIcon] = useState(<BsBellSlash size={20} />)
 
   const handleChange = (checked) => {
-    setChecked(checked);
-    setNotificationIcon(checked ? <RxBell size={20} /> : <BsBellSlash size={20} />);
-  };
-  
+    setChecked(checked)
+    setNotificationIcon(checked ? <RxBell size={20} /> : <BsBellSlash size={20} />)
+  }
 
   const handleSignOut = () => {
-    setLoading(true);
+    setLoading(true)
     // Simulating a delay of 2 seconds before closing the cart
     setTimeout(() => {
-      setCartVisible(false);
-      setLoading(false);
-    }, 2000);
-  };
+      setCartVisible(false)
+      setLoading(false)
+    }, 2000)
+  }
 
   const toggleCartVisibility = () => {
-    setCartVisible(!cartVisible);
-  };
+    setCartVisible(!cartVisible)
+  }
 
   const handleMouseEnter = (item, position) => {
-    setModalItem({ item, position });
-  };
+    setModalItem({ item, position })
+  }
 
   const handleModalMouseEnter = () => {
-    clearTimeout();
-  };
+    clearTimeout()
+  }
 
   const handleModalMouseLeave = () => {
-    setModalItem(null);
-  };
+    setModalItem(null)
+  }
 
   const handleItemClick = (item) => {
-    setModalItem(null);
-  };
+    setModalItem(null)
+  }
 
   const renderModalContent = () => {
-    if (!modalItem) return null;
+    if (!modalItem) return null
 
     switch (modalItem.item) {
       case "DadosPessoais":
@@ -81,7 +79,7 @@ function Home() {
               <span>Trocar Foto</span>
             </button>
           </div>
-        );
+        )
       case "Informacoes":
         return (
           <div className="itenscenter">
@@ -97,7 +95,7 @@ function Home() {
               <span>Contato</span>
             </button>
           </div>
-        );
+        )
       case "notificacoes":
         return (
           <div className="itenscenter">
@@ -130,7 +128,7 @@ function Home() {
               <span>Modo Avião</span>
             </button>
           </div>
-        );
+        )
       case "acessibilidade":
         return (
           <div className="itenscenter">
@@ -143,7 +141,7 @@ function Home() {
               <span>Temas</span>
             </button>
           </div>
-        );
+        )
       case "AparelhosConectados":
         return (
           <div className="itenscenter">
@@ -179,13 +177,13 @@ function Home() {
               <p>(há 11 horas atrás)</p>
             </div>
           </div>
-        );
+        )
       case "ContasVinculadas":
-        return <div>Nenhuma Conta Vinculada.</div>;
+        return <div>Nenhuma Conta Vinculada.</div>
       default:
-        return null;
+        return null
     }
-  };
+  }
 
   return (
     <Container>
@@ -324,7 +322,7 @@ function Home() {
         </div>
       )}
     </Container>
-  );
+  )
 }
 
-export default Home;
+export default Home

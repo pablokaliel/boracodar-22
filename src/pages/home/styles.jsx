@@ -223,11 +223,11 @@ export const Info = styled.div`
 
   .sign-out {
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 8px;
     font-size: 16px;
     color: #aa2222;
+    width:100%;
   }
 
   div {
