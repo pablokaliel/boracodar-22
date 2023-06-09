@@ -22,6 +22,12 @@ function Home() {
   const [isLoading, setLoading] = useState(false)
   const [checked, setChecked] = useState(false)
   const [notificationIcon, setNotificationIcon] = useState(<BsBellSlash size={20} />)
+  const [fontSize, setFontSize] = useState(16)
+
+
+  const handleFontClick = () => {
+    setFontSize(prevSize => prevSize === 16 ? 19 : 16); // Alterna entre 16px e 19px
+  }
 
   const handleChange = (checked) => {
     setChecked(checked)
@@ -132,7 +138,7 @@ function Home() {
       case "acessibilidade":
         return (
           <div className="itenscenter">
-            <button title="btn-function" className="item" onClick={() => handleItemClick("Fontes")}>
+            <button title="btn-function" className="item" onClick={() => handleFontClick()}>
               <AiOutlineFontSize size={20} />
               <span>Fontes</span>
             </button>
@@ -186,7 +192,7 @@ function Home() {
   }
 
   return (
-    <Container>
+    <Container style={{ fontSize: `${fontSize}px` }}> {/* Define o tamanho do texto */}
       {cartVisible ? (
         <Swapper>
           <Header>

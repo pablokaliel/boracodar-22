@@ -107,7 +107,7 @@ export const Container = styled.div`
   }
 `;
 export const Swapper = styled.div`
-  width: 375px;
+  min-width: 375px;
   padding: 24px 24px 16px 24px;
 
   background: var(--Card);
@@ -148,6 +148,7 @@ export const Header = styled.header`
 export const DivImg = styled.div`
   width: 55px;
   height: 55px;
+  flex-shrink: 0;
 
   overflow: hidden;
   border-radius: 8px;
