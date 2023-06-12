@@ -7,19 +7,6 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-  :root {
-    --background:#e1e9f0;
-    --textColor:#38343D;
-    --SubText:#797085;
-    --email:#686071;
-    --Card:#FDFCFE;
-  }
-
-  body {
-    background: var(--background);
-    color: var(--textColor);
-  }
-
   #root,
   html,
   body {

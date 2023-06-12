@@ -7,6 +7,8 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background: ${(props) => props.theme.colors.background};
+  color: ${(props) => props.theme.colors.textColor};
 
   .cart-open {
     display: flex;
@@ -21,15 +23,11 @@ export const Container = styled.div`
     border-radius: 100%;
 
     border: none;
-    color: var(--textColor);
-    background: var(--Card);
+    color: ${(props) => props.theme.colors.textColor};
+    background: ${(props) => props.theme.colors.card};
     box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
 
     transition: all 0.3s;
-
-    &:hover {
-      background: var(--buttonHover);
-    }
   }
 
   div {
@@ -38,9 +36,17 @@ export const Container = styled.div`
       display: flex;
       flex-direction: column;
       gap: 6px;
+
+      button {
+        color: ${(props) => props.theme.colors.textColor};
+      }
+
+      span {
+        color: ${(props) => props.theme.colors.textColor};
+      }
     }
     .app {
-      color: var(--SubText);
+      color: ${(props) => props.theme.colors.subText};
       font-size: 12px;
       margin-bottom: 12px;
     }
@@ -52,9 +58,10 @@ export const Container = styled.div`
       align-items: center;
       gap: 4px;
       margin-bottom: 3px;
+
       p {
         font-size: 11px;
-        color: var(--textColor);
+        color: ${(props) => props.theme.colors.textColor};
       }
     }
 
@@ -70,14 +77,13 @@ export const Container = styled.div`
       width: 100%;
 
       @media (max-width: 767px) {
-        background-color: var(--Card);
+        background: ${(props) => props.theme.colors.card};
         width: 100%;
       }
 
       &:hover {
-        color: #000;
         font-size: 16px;
-        background: var(--background);
+        background: ${(props) => props.theme.colors.background};
         border-radius: 8px;
       }
     }
@@ -89,35 +95,34 @@ export const Container = styled.div`
     position: absolute;
     z-index: 10;
 
-    background-color: var(--Card);
+    background: ${(props) => props.theme.colors.card};
     border-radius: 8px;
 
     @media (max-width: 767px) {
-      top: 0; // Posicionar o modal no topo
-      left: 0; // Ajustar a posição do modal
+      top: 0;
+      left: 0;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 100%; // Definir a largura do modal para preencher a tela
-      min-height: 150px; // Definir a altura do modal para preencher a tela
+      width: 100%;
+      min-height: 150px;
       margin-left: 0;
-      background-color: var(--background);
+      background: ${(props) => props.theme.colors.background};
     }
   }
 `;
 export const Swapper = styled.div`
-  min-width: 375px;
   padding: 24px 24px 16px 24px;
 
-  background: var(--Card);
+  background: ${(props) => props.theme.colors.card};
   border-radius: 12px;
 `;
 
 export const Divider = styled.div`
   height: 1px;
   margin: 16px 0px;
-  background-color: #f4effa;
+  background: ${(props) => props.theme.colors.background};
 `;
 
 export const Header = styled.header`
@@ -132,15 +137,17 @@ export const Header = styled.header`
     position: absolute;
     top: 0;
     right: 0;
+    color: ${(props) => props.theme.colors.textColor};
   }
 
   div {
     h1 {
       font-size: 18px;
+      color: ${(props) => props.theme.colors.textColor};
     }
 
     span {
-      color: var(--email);
+      color: ${(props) => props.theme.colors.email};
     }
   }
 `;
@@ -164,12 +171,14 @@ export const Main = styled.main``;
 export const DivSwitch = styled.div`
   display: flex;
   align-items: center;
+
   .flex {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 4px;
   }
+
   .between {
     display: flex;
     justify-content: space-between;
@@ -178,7 +187,7 @@ export const DivSwitch = styled.div`
 
 export const DivInfo = styled.div`
   h1 {
-    color: var(--SubText);
+    color: ${(props) => props.theme.colors.subText};
     font-size: 12px;
     margin-bottom: 12px;
   }
@@ -187,6 +196,7 @@ export const DivInfo = styled.div`
 export const Info = styled.div`
   width: 100%;
   height: 100%;
+  color: ${(props) => props.theme.colors.textColor};
 
   .loading-icon {
     margin-right: 5px;
@@ -211,9 +221,8 @@ export const Info = styled.div`
   padding: 8px;
 
   &:hover {
-    color: #000;
     font-size: 17px;
-    background: var(--background);
+    background: ${(props) => props.theme.colors.background};
     border-radius: 8px;
   }
 
@@ -228,7 +237,7 @@ export const Info = styled.div`
     gap: 8px;
     font-size: 16px;
     color: #aa2222;
-    width:100%;
+    width: 100%;
   }
 
   div {
