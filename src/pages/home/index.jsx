@@ -45,6 +45,16 @@ function Home() {
     );
   };
 
+  const handleOpenProfile = () => {
+    setLoading(true);
+  
+    // Simulating a delay of 2 seconds before opening the profile
+    setTimeout(() => {
+      setLoading(false);
+      setCartVisible(true);
+    }, 2000);
+  };
+
   const handleSignOut = () => {
     setLoading(true);
     // Simulating a delay of 2 seconds before closing the cart
@@ -403,9 +413,15 @@ function Home() {
             <button
               title="btn-function"
               className="open"
-              onClick={toggleCartVisibility}
+              onClick={handleOpenProfile}
             >
-              <MdManageAccounts size={24} />
+              {isLoading ? (
+                <div className="center">
+                  <AiOutlineLoading size={20} className="loading-icon" />
+                </div>
+              ) : (
+                <MdManageAccounts size={24} />
+              )}
             </button>
           </div>
         )}

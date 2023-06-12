@@ -3,6 +3,24 @@ import styled from "styled-components";
 export const Container = styled.div`
   height: 100%;
   width: 100%;
+    .center{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  .loading-icon {
+    margin-right: 5px;
+    animation: spin 1s infinite linear;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 
   display: flex;
   align-items: center;
@@ -198,19 +216,7 @@ export const Info = styled.div`
   height: 100%;
   color: ${(props) => props.theme.colors.textColor};
 
-  .loading-icon {
-    margin-right: 5px;
-    animation: spin 1s infinite linear;
-  }
 
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
 
   display: flex;
   justify-content: space-between;
