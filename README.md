@@ -17,7 +17,7 @@ O Desafio consiste em reproduzir o layout onde simula uma interface de tela de C
 <br>
 
 <p align="center">
-  <img src="https://github.com/pablokaliel/boracodar-22/assets/104238801/f7e0ae46-266d-4ffc-b748-ef78463355c8" width="100%">
+  <img src="https://github.com/pablokaliel/boracodar-22/assets/104238801/4fa1272c-1666-42f8-a5e4-c7cfc634729d" width="100%">
 </p>
 
 ## 🚀 Tecnologias
@@ -32,3 +32,4 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 Você pode visualizar o Resultado do projeto através [Bora Codar #22](https://boracodar22.vercel.app/). <br/>
 Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/community/file/1245736372337157133).
+
