@@ -1,4 +1,4 @@
-<h1 align="center"> Shopping Cart </h1>
+<h1 align="center"> Profile Settings </h1>
 
 <p align="center">
 #boraCodar são desafios semanais, promovido pela Rocketseat para ensino de tecnologias WEB. <br/>
